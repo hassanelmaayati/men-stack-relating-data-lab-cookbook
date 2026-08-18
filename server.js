@@ -3,6 +3,8 @@ require('dotenv').config()
 const mongoose=require('mongoose')
 const express=require('express')
 const session=require('express-session')
+const bcrypt = require('bcrypt');
+
 const app = express()
 
 mongoose.connect(process.env.MONGODB_URI)
@@ -15,6 +17,7 @@ app.use(session({
   resave:false,
   saveUninitialized: false,
 }))
+
 
 
 
