@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Pantry</title>
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
@@ -17,8 +18,10 @@
       <ul>
         <% foods.forEach(food => { %>
           <li>
+
             <%= food.name %>
-            <% if (user && user._id === userId) { %>
+            
+            <% if (user && user._id.toString() === userId) { %>
               <a href="/users/<%= userId %>/foods/<%= food._id %>/edit">Edit</a>
               <form action="/users/<%= userId %>/foods/<%= food._id %>?_method=DELETE" method="POST" style="display:inline;">
                 <button type="submit">Delete</button>
